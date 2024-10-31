@@ -43,7 +43,8 @@ consumer.o: consumer.cpp
 # Compiles and outputs producer and consumer
 #
 run: producer consumer
-	./producer& ./consumer&
+	./producer& 
+	./consumer&
 #####################################################
 # Removes all .o files, shared memory, and kills the running processes
 #
