@@ -10,27 +10,83 @@ The producer generates items and puts items onto the table. The consumer will pi
 Copy files onto a Linux/Unix machine with C/C++ installed.
 
 ### Running
-There are three commands you will be using:
-```{bash}
-make run
-```
->This command threads, compiles 'producer.cpp' and 'consumer.cpp', and runs using './producer& ./consumer&'.
-```{bash}
-make stop
-```
->This command kills 'producer.cpp' and 'consumer.cpp' with pkill.
-```{bash}
-make clean
-```
->This command removes all files created.
-
+- To start the program use 'make run'.
+- To end the program use 'make stop'.
+- Inorder to run 'make run' again you must call 'make stop'.
+- If you want a diffrent outcome with RANDOM set to 'true' or when you are finnished runing this program use 'make clean'.
+  
 ## Features
 There are two variable you can play with:
-1. RANDOM - set to 'false' for the output to be constent and set to 'true' for the output to be random. Found only in 'producer.cpp'.
-2. TABLE_SIZE - Allows the storage size to be changed. MUST MATCH WITHIN 'producer.cpp' and 'consumer.cpp'.
+- RANDOM - set to 'false' for the output to be constent and set to 'true' for the output to be random. Found only in 'producer.cpp'.
+- TABLE_SIZE - Allows the storage size to be changed. MUST MATCH WITHIN 'producer.cpp' and 'consumer.cpp'.
+
+---
+
+There are three cmake ommands you can use:
+- make run
+>This command threads, compiles 'producer.cpp' and 'consumer.cpp', and runs using './producer& ./consumer&'.
+- make stop
+>This command kills 'producer.cpp' and 'consumer.cpp' with pkill.
+- make clean
+>This command removes all files created.
+
+## Example of Execution
+- Example of code executioning with RANDOM=false TABLE_SIZE=2.
+```{bash}
+[$PATH]$ make run
+g++ -std=c++11 -pthread -c producer.cpp
+g++ -std=c++11 -pthread -o producer producer.o -lrt
+g++ -std=c++11 -pthread -c consumer.cpp
+g++ -std=c++11 -pthread -o consumer consumer.o -lrt
+./producer& 
+./consumer&
+[$PATH]$ 
+
+Table is Empty
+Filling Table...
+New Table[676,766]
+Table is Full
+Emptying Table...
+Emptyed Item[676,766]
+
+Table is Empty
+Filling Table...
+New Table[611,73]
+Table is Full
+Emptying Table...
+Emptyed Item[611,73]
+
+Table is Empty
+Filling Table...
+New Table[277,633]
+Table is Full
+Emptying Table...
+Emptyed Item[277,633]
+
+Table is Empty
+Filling Table...
+New Table[921,650]
+Table is Full
+Emptying Table...
+Emptyed Item[921,650]
+
+Table is Empty
+Filling Table...
+New Table[74,382]
+Table is Full
+Emptying Table...
+Emptyed Item[74,382]
+
+[$PATH]$ make stop
+pkill producer
+pkill consumer
+[$PATH]$ make clean
+rm -f *.o producer consumer
+rm -f /dev/shm/shared_memory
+```
 
 ## Contributing
-This is a finnished assignment uploaded to github for a grade. You should NOT copy and paste this work but feel free to use it as a refrence.
+This is a finnished assignment uploaded to github for a grade. Do NOT copy and paste my work but feel free to use it as a refrence.
 
 ## Licensing
 The code in this project is licensed under MIT license.
