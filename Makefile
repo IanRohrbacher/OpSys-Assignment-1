@@ -10,7 +10,8 @@
 msg:
 	@echo 'Targets are:'
 	@echo 'make run 	- Compiles producer and consumer then outputs producer.o and consumer.o'
-	@echo 'make clean	- Ends the running processes and removes all .o files and shared memory'
+	@echo 'make stop	- Ends the running processes'
+	@echo 'make clean	- Removes all .o files and shared memory'
 
 ###############################################################
 # Variables
@@ -46,9 +47,13 @@ run: producer consumer
 #####################################################
 # Removes all .o files, shared memory, and kills the running processes
 #
+stop:
+	pkill producer
+	pkill consumer
+#####################################################
+# Removes all .o files, shared memory
+#
 clean:
 	rm -f *.o $(TARGETS)
 	rm -f /dev/shm/shared_memory
-	pkill producer
-	pkill consumer
 #####################################################
