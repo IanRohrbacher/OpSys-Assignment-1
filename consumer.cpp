@@ -31,7 +31,7 @@ void consumer(shared_data* data) {
         sem_wait(&data->mutex); // wait for independent access to the table
 
         // prints and removes items from the table
-        std::cout << "Table is Full\nEmptying Table...\nEmptyed Item[";
+        std::cout << "Table is Full\nEmptying Table...\Emptied Item[";
         for (int i = 0; i < TABLE_SIZE; i++) {
             std::cout << data->table[i];
             if(i!=(TABLE_SIZE-1)) { std::cout << ",";}
