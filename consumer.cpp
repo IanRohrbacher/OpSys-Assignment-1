@@ -37,7 +37,7 @@ void consumer(shared_data* data) {
             if(i!=(TABLE_SIZE-1)) { std::cout << ",";}
             data->table[i] = 0; // sets value to 0, 'NULL', to indicate item removed
         }
-        std::cout << "]\nRemoved!\n";
+        std::cout << "]\n";
 
         sem_post(&data->mutex); // release the table
         sem_post(&data->empty); // signals that the table is empty and item has been removed
