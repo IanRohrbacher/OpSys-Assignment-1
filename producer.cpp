@@ -39,7 +39,7 @@ void producer(shared_data* data) {
             std::cout << data->table[i];
             if(i!=(TABLE_SIZE-1)) { std::cout << ",";}
         }
-        std::cout << "]\nFilled!";
+        std::cout << "]\n";
 
         sem_post(&data->mutex); // release the table
         sem_post(&data->full); // signals that the table is full and item has been produced
