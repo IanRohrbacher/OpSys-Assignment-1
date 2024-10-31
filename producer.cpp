@@ -18,7 +18,7 @@
 #define RESET   "\033[0m"
 
 const bool RANDOM = false; // set true for a random set of tables and false for a set list of tables
-const int TABLE_SIZE = 2; // sets size of table for 
+const int TABLE_SIZE = 2; // sets size of table for data storage | MUST MATCH WITH CONSUMER.CPP
 
 struct shared_data {
     sem_t empty;
@@ -61,7 +61,7 @@ int main() {
     // error out if shared memory failed to open
     if (shm_fd == -1) {
         std::cerr << ERROR << "\nProducer Error! Shared memory failed to open\n" << RESET;
-        std::cerr << ERROR << "Please run \'make clean\' and run again!\n" << RESET;
+        std::cerr << ERROR << "Please run \'make stop\' and try running \'make run\' again!\nIf the error persists run \'make clean\'!\n" << RESET;
         return 1;
     }
 
@@ -70,7 +70,7 @@ int main() {
     //check that shared memory was created
     if (shm_fd == -1) {
         std::cerr << ERROR << "\nProducer Error! Shared memory failed to create\n" << RESET;
-        std::cerr << ERROR << "Please run \'make clean\' and run again!\n" << RESET;
+        std::cerr << ERROR << "Please run \'make stop\' and try running \'make run\' again!\nIf the error persists run \'make clean\'!\n" << RESET;
         return 1;
     }
 
@@ -79,7 +79,7 @@ int main() {
     // error out if the map failed
     if (data == MAP_FAILED) {
         std::cerr << ERROR << "\nProducer Error! Map failed to create\n" << RESET;
-        std::cerr << ERROR << "Please run \'make clean\' and run again!\n" << RESET;
+        std::cerr << ERROR << "Please run \'make stop\' and try running \'make run\' again!\nIf the error persists run \'make clean\'!\n" << RESET;
         return 1;
     }
 
