@@ -13,16 +13,16 @@ Copy files onto a Linux/Unix machine with C/C++ installed.
 - To start the program use 'make run'.
 - To end the program use 'make stop'.
 - Inorder to run 'make run' again you must call 'make stop'.
-- If you want a diffrent outcome with RANDOM set to 'true' or when you are finnished runing this program use 'make clean'.
+- If you want a different outcome with RANDOM set to 'true' or when you are finished running this program use 'make clean'.
   
 ## Features
 There are two variable you can play with:
-- RANDOM - set to 'false' for the output to be constent and set to 'true' for the output to be random. Found only in 'producer.cpp'.
+- RANDOM - set to 'false' for the output to be content and set to 'true' for the output to be random. Found only in 'producer.cpp'.
 - TABLE_SIZE - Allows the storage size to be changed. MUST MATCH WITHIN 'producer.cpp' and 'consumer.cpp'.
 
 ---
 
-There are three cmake ommands you can use:
+There are three make commands you can use:
 - make run
 >This command threads, compiles 'producer.cpp' and 'consumer.cpp', and runs using './producer& ./consumer&'.
 - make stop
@@ -47,35 +47,35 @@ Filling Table...
 New Table[676,766]
 Table is Full
 Emptying Table...
-Emptyed Item[676,766]
+Emptied Item[676,766]
 
 Table is Empty
 Filling Table...
 New Table[611,73]
 Table is Full
 Emptying Table...
-Emptyed Item[611,73]
+Emptied Item[611,73]
 
 Table is Empty
 Filling Table...
 New Table[277,633]
 Table is Full
 Emptying Table...
-Emptyed Item[277,633]
+Emptied Item[277,633]
 
 Table is Empty
 Filling Table...
 New Table[921,650]
 Table is Full
 Emptying Table...
-Emptyed Item[921,650]
+Emptied Item[921,650]
 
 Table is Empty
 Filling Table...
 New Table[74,382]
 Table is Full
 Emptying Table...
-Emptyed Item[74,382]
+Emptied Item[74,382]
 
 [$PATH]$ make stop
 pkill producer
@@ -86,7 +86,7 @@ rm -f /dev/shm/shared_memory
 ```
 
 ## Contributing
-This is a finnished assignment uploaded to github for a grade. Do NOT copy and paste my work but feel free to use it as a refrence.
+This is a finished assignment uploaded to github for a grade. Do NOT copy and paste my work but feel free to use it as a reference.
 
 ## Licensing
 The code in this project is licensed under MIT license.
