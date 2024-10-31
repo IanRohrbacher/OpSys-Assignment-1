@@ -16,7 +16,7 @@
 #define INCOMPLETE  "\033[33m"
 #define RESET   "\033[0m"
 
-const int TABLE_SIZE = 2;
+const int TABLE_SIZE = 2; // sets size of table for data storage | MUST MATCH WITH PRODUCER.CPP
 
 struct shared_data {
     sem_t empty;
@@ -52,7 +52,7 @@ int main() {
     // error out if shared memory failed to open
     if (shm_fd == -1) {
         std::cerr << ERROR << "\nConsumer Error! Shared memory failed to open\n" << RESET;
-        std::cerr << ERROR << "Please run \'make clean\' and run again!\n" << RESET;
+        std::cerr << ERROR << "Please run \'make stop\' and try running \'make run\' again!\nIf the error persists run \'make clean\'!\n" << RESET;
         return 1;
     }
 
@@ -61,7 +61,7 @@ int main() {
     // error out if the map failed
     if (data == MAP_FAILED) {
         std::cerr << ERROR << "\nConsumer Error! Map failed to create\n" << RESET;
-        std::cerr << ERROR << "Please run \'make clean\' and run again!\n" << RESET;
+        std::cerr << ERROR << "Please run \'make stop\' and try running \'make run\' again!\nIf the error persists run \'make clean\'!\n" << RESET;
         return 1;
     }
     std::cout << std::endl;
